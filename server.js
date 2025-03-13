@@ -63,6 +63,15 @@ app.get('/api/products', async (req, res) => {
   }
 });
 
+app.post('/api/login', async (req, res) => {
+  const { username, password } = req.body;
+  if (!username || !password) {
+      return res.status(400).json({ error: "Username and password are required" });
+  }
+  res.json({ message: "Login successful!" });
+});
+
+
 //  Fix: Use `PORT` variable properly
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
